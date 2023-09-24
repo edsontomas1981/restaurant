@@ -2,7 +2,7 @@ import sqlite3  # Importe o módulo sqlite3
 from controller.conexao import conectar_bd
 
 class Categoria():
-    def criar_categoria(nome):
+    def criar_categoria(self,nome):
         try:
             conn = conectar_bd()
             cursor = conn.cursor()
@@ -13,7 +13,7 @@ class Categoria():
         finally:
             conn.close()
 
-    def ler_categorias():
+    def ler_categorias(self):
         try:
             conn = conectar_bd()
             cursor = conn.cursor()
@@ -25,7 +25,7 @@ class Categoria():
         finally:
             conn.close()
 
-    def atualizar_categoria(id, nome):
+    def atualizar_categoria(self,id, nome):
         try:
             conn = conectar_bd()
             cursor = conn.cursor()
@@ -36,7 +36,7 @@ class Categoria():
         finally:
             conn.close()
 
-    def deletar_categoria(id):
+    def deletar_categoria(self,id):
         try:
             conn = conectar_bd()
             cursor = conn.cursor()

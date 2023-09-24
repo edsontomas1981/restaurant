@@ -2,22 +2,10 @@ from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from config import SQLALCHEMY_DATABASE_URI  # Importe a configuração do banco de dados
 from flask_cors import CORS
+from controller.categoria import Categoria
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
-db = SQLAlchemy(app)
-
-from models.alergenicos import Alergenico
-from models.categorias import Categoria
-from models.fornecedor import Fornecedor
-from models.produtos import Produto
-
 CORS(app)
-
-with app.app_context():
-    print("Criando tabelas...")
-    db.create_all()
-    print("Tabelas criadas com sucesso.")
 
 # Lista de itens como exemplo
 items = []
@@ -33,6 +21,7 @@ def get_items():
 @app.route('/api/items', methods=['POST'])
 def add_item():
     data = request.get_json()
+    print(data)
     if 'item' in data:
         item = data['item']
         items.append(item)
@@ -40,6 +29,25 @@ def add_item():
     else:
         return jsonify({'error': 'O item não pode estar vazio.'}), 400
 
+@app.route('/api/add_categoria', methods=['POST'])
+def add_categoria():
+    data = request.get_json()
+    categoria = Categoria()
+    categoria.criar_categoria(data['item'])
+    return jsonify({'error': 'O item não pode estar vazio.'}), 400
+
+@app.route('/api/read_categorias', methods=['POST'])
+def add_read_categoria():
+    data = request.get_json()
+    categoria = Categoria()
+    return jsonify(categoria.ler_categorias()), 200
+
+@app.route('/api/delete_categoria', methods=['POST'])
+def delete_categoria():
+    data = request.get_json()
+    categoria = Categoria()
+    categoria.deletar_categoria(3)
+    return jsonify({"status": "ok"}), 200
+
 if __name__ == '__main__':
-    print('iniciando ')
     app.run(debug=True)

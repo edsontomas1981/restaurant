@@ -1,5 +1,3 @@
-alert("ok1")
-
 document.addEventListener('DOMContentLoaded', () => {
     const itemList = document.getElementById('item-list');
     const itemForm = document.getElementById('item-form');

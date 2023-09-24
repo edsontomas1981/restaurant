@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +8,31 @@
     <title>Document</title>
 </head>
 <body>
-    <section class="container">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navBar">
+        </nav>
+    </header>
+    <main class="container mt-1">
         <div class="row">
-            <div class="col-md-3">
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email address</label>
-                </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
-                </div>
+            <div class="col-sm-4">
+                <form class="row g-3">
+                    <div class="col-sm-6">
+                    <label for="categoria" class="visually-hidden">Categoria</label>
+                    <input type="text" class="form-control" id="categoria" placeholder="Categoria">
+                    </div>
+                    <div class="col-sm-6">
+                        <a class="btn btn-primary mb-3" id="criaCategoria">Criar Categoria</a>
+                        <a class="btn btn-primary mb-3" id="readCategorias">buscar</a>
+                        <a class="btn btn-danger mb-3" id="deleteCategoria">apagar</a>
+                    </div>
+                    <div class="col-sm-12" id="tableCategorias">
+                    </div>
+                </form>
             </div>
         </div>
-    </section>
-    <script src="js/main.js"></script>
+    </main>
+    <script src="js/templatesJs/navBar.js"></script>
+    <script src="js/cadastros/component/categorias.js"></script>
+    <script src="js/conexao.js"></script>
 </body>
 </html>
