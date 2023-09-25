@@ -1,22 +1,51 @@
 criaCategoria = document.getElementById('criaCategoria');
-categorias = document.getElementById('readCategorias');
+readCategorias = document.getElementById('readCategorias');
 deleteCategorias = document.getElementById('deleteCategoria');
 
-categorias.addEventListener('click', async (e) => {
-    try {
-        let url = '/api/read_categorias'
-        let dados = {
-            'item': "newItem"
-        }
-        conexao = new Conexao(url, dados)
-        let result = await conexao.sendPostRequest()
-        console.log(result)
-        e.preventDefault();
-    } catch (error) {
-        console.error('Ocorreu um erro:', error);
-    }
-    e.preventDefault();
-})
+// const BASEURL = "http://127.0.0.1:5000"
+
+// class Conexao {
+//     constructor(url,data){
+//         this.url=BASEURL+url
+//         this.data=data
+//     }
+
+//     getCSRFToken() {
+//       const match = document.cookie.match(/(^|;)csrftoken=([^;]*)/);
+//       if (match && match[2]) {
+//           return match[2];
+//       } else {
+//           // Lida com o caso em que o cookie csrftoken não foi encontrado
+//           console.error("O cookie 'csrftoken' não foi encontrado.");
+//           return null; // Ou outra ação apropriada, dependendo do seu caso
+//       }
+//     }
+     
+//     async sendPostRequest() {
+//       // this.csrfToken=this.getCSRFToken()
+//       try {
+//         const response = await fetch(this.url, {
+//           method: "POST",
+//           headers: {
+//             "Content-Type": "application/json",
+//             // "X-CSRFToken": this.csrfToken,
+//           },
+//           body: JSON.stringify(this.data),
+//         });
+  
+//         if (!response.ok) {
+//           throw new Error(`HTTP error! status: ${response.status}`);
+//         }
+  
+//         const result = await response.json();
+//         return result;
+//       } catch (error) {
+//         console.error(error);
+//         // alert("Erro interno!");
+//       }
+//     }
+// }
+
 
 deleteCategorias.addEventListener('click', async (e) => {
     try {
@@ -24,7 +53,7 @@ deleteCategorias.addEventListener('click', async (e) => {
         let dados = {
             'item': "newItem"
         }
-        conexao = new Conexao(url, dados)
+        let conexao = new Conexao(url, dados)
         let result = await conexao.sendPostRequest()
         console.log(result)
         e.preventDefault();
@@ -34,51 +63,66 @@ deleteCategorias.addEventListener('click', async (e) => {
     e.preventDefault();
 })
 
-
 criaCategoria.addEventListener('click', async (e) => {
-    alert("ok ok")
+    let categoriaNome = document.getElementById('categoria').value
     try {
         let url = '/api/add_categoria'
         let dados = {
-            'item': "newItem"
+            'item': categoriaNome
         }
-        conexao = new Conexao(url, dados)
+        let conexao = new Conexao(url, dados)
         let result = await conexao.sendPostRequest()
-        e.preventDefault();
+        if (result.status == 200){
+          msgOK("Categoria cadastrada com sucesso! 🎉")
+        }
     } catch (error) {
         console.error('Ocorreu um erro:', error);
     }
+    e.preventDefault();
+
 })
 
+const carregaTabelaCategorias = async()=>{
+  try {
+      let url ='/api/read_categorias'
+      let dados = {}
+      let conexao = new Conexao(url, dados)
+      let result = await conexao.sendPostRequest()
+      populaTabelaCategoria(result)
+  } catch (error) {
+      console.error('Ocorreu um erro:', error);
+  }
+}
 
-document.getElementById('tableCategorias').innerHTML=`
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Categoria</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-`
+const populaTabelaCategoria = (request)=>{
+  let tabelaCategorias = document.getElementById('tableCategorias')
+  let htmlTabela = ``
+  // tabelaCategorias.innerHTML=htmlTabela
+  let data = request
+  let template
+
+  data.forEach(item => {
+  template += '<tr class="tr" id=' + item.id + ' ">' +
+      '<td>' + item[0] + '</td>' +
+      '<td>' + item[1] + '</td>' +
+      '</tr>';
+  });
+    
+  tabelaCategorias.innerHTML=`
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Categoria</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${template}
+        </tbody>
+      </table>
+    `
+}
+
+carregaTabelaCategorias()
+
+

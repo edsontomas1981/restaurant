@@ -37,7 +37,7 @@ class Conexao {
         return result;
       } catch (error) {
         console.error(error);
-        alert("Erro interno!");
+        // alert("Erro interno!");
       }
     }
 }

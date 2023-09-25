@@ -32,9 +32,10 @@ def add_item():
 @app.route('/api/add_categoria', methods=['POST'])
 def add_categoria():
     data = request.get_json()
+    print(data['item']) 
     categoria = Categoria()
     categoria.criar_categoria(data['item'])
-    return jsonify({'error': 'O item não pode estar vazio.'}), 400
+    return jsonify({'status': 200}), 200
 
 @app.route('/api/read_categorias', methods=['POST'])
 def add_read_categoria():
