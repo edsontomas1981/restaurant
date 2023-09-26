@@ -14,21 +14,6 @@ items = []
 def index():
     return jsonify({"items":"teste"})
 
-@app.route('/api/items', methods=['GET'])
-def get_items():
-    return jsonify(items)
-
-@app.route('/api/items', methods=['POST'])
-def add_item():
-    data = request.get_json()
-    print(data)
-    if 'item' in data:
-        item = data['item']
-        items.append(item)
-        return jsonify({'message': 'Item adicionado com sucesso!'})
-    else:
-        return jsonify({'error': 'O item não pode estar vazio.'}), 400
-
 @app.route('/api/add_categoria', methods=['POST'])
 def add_categoria():
     data = request.get_json()
@@ -47,7 +32,7 @@ def add_read_categoria():
 def delete_categoria():
     data = request.get_json()
     categoria = Categoria()
-    categoria.deletar_categoria(3)
+    categoria.deletar_categoria(data['id'])
     return jsonify({"status": "ok"}), 200
 
 if __name__ == '__main__':

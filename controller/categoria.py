@@ -22,6 +22,7 @@ class Categoria():
             return categorias
         except sqlite3.Error as e:
             print("Erro ao ler categorias:", e)
+            return 300
         finally:
             conn.close()
 
