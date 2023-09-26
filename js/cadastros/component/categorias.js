@@ -68,7 +68,6 @@ const populaTabelaCategoria = (request)=>{
   });
     
   template=`
-      <table class="table">
         <thead>
           <tr>
             <th scope="col">Id</th>
@@ -78,7 +77,6 @@ const populaTabelaCategoria = (request)=>{
         <tbody>
           ${template}
         </tbody>
-      </table>
     `
     tabelaCategorias.innerHTML=template
 }
