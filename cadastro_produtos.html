@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de Produtos</title>
+    <!-- Inclua os arquivos CSS e JS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <section>
+            <form>
+                <div class="row">
+                    <div class="form-floating mb-3 col-sm-6">
+                        <input type="text" class="form-control" id="nome_produto" placeholder="Nome do Produto">
+                        <label for="nome_produto">Nome Produto</label>
+                    </div>
+                    <div class="form-floating col-sm-6">
+                        <select class="form-select" id="cmb_categorias" aria-label="Floating label select example">
+                        </select>
+                        <label for="cmb_categorias">Categorias</label>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+    <script src="js/cadastros/component/categorias.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
