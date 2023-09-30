@@ -14,6 +14,14 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/meuCss/estilo.css" />
   <link rel="shortcut icon" href="images/favicon.png" />
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Bootstrap JS (incluindo o Bootstrap Modal) -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://kit.fontawesome.com/72064b806a.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -26,6 +34,13 @@
       </main>
       <div  id="template_modal">
       </div>
+      <div id="modal_categoria">
+      </div>
+      <div id="modal_tamanho">
+      </div>
+      <div id="modal_alergenos">
+      </div>      
+      
     </div>
   </div>
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
@@ -33,7 +48,7 @@
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="node_modules/chart.js/dist/Chart.min.js"></script>
   <script src="node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5NXz9eVnyJOA81wimI8WYE08kW_JMe8g&callback=initMap" async defer></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5NXz9eVnyJOA81wimI8WYE08kW_JMe8g&callback=initMap" async defer></script> -->
   <script src="js/off-canvas.js"></script>
   <script src="js/hoverable-collapse.js"></script>
   <script src="js/misc.js"></script>
@@ -43,7 +58,13 @@
   <script src="js/meuJs/carrega_sidebar.js"></script>
   <!-- <script src="js/meuJs/carrega_main.js"></script> -->
   <script src="js/meuJs/cadastro_produtos.js"></script>
+  <script src="js/meuJs/modal_categoria.js"></script>
+  <script src="js/meuJs/modal_tamanhos.js"></script>,
+  <script src="js/meuJs/modal_alegernos.js"></script>
+  <script src="js/meuJs/imagem.js"></script>
   <script src="../js/cadastros/component/categorias.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/conexao.js"></script>
 </body>
 
 </html>

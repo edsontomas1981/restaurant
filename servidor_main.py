@@ -26,6 +26,7 @@ def add_categoria():
 def add_read_categoria():
     data = request.get_json()
     categoria = Categoria()
+    print(categoria.ler_categorias())
     return jsonify(categoria.ler_categorias()), 200
 
 @app.route('/api/delete_categoria', methods=['POST'])
