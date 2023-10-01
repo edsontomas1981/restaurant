@@ -1,6 +1,6 @@
 let modal_cad_produto  = document.getElementById("template_modal")
 modal_cad_produto.innerHTML = `        
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modal_cacastro_produtos">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
@@ -25,7 +25,7 @@ modal_cad_produto.innerHTML = `
                     Disponível
                     <i class="input-helper"></i></label>
                 </div>
-                <div class="form-floating col-sm-5 pl-1">
+                <div class="form-floating col-sm-6 pl-1">
                     <input class="form-control" id="fornecedor_cnpj" aria-label="fornecedores" placeholder="CNPJ/CPF">
                     <label for="fornecedor_cnpj">CNPJ/CPF</label>
                 </div> 
