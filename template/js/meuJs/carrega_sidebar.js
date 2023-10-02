@@ -12,7 +12,7 @@ const html_sidebar = ()=>{
     <span class="online"></span>
   </div>
   <ul class="nav">
-    <li class="nav-item active">
+    // <li class="nav-item active">
       <a class="nav-link" href="index.html">
         <img src="images/icons/1.png" alt="">
         <span class="menu-title">Dashboard</span>
@@ -105,5 +105,5 @@ const html_sidebar = ()=>{
 `
 }
 
-carrega_sidebar()
+// carrega_sidebar()
 

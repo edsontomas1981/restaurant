@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from config import SQLALCHEMY_DATABASE_URI  # Importe a configuração do banco de dados
 from flask_cors import CORS
 from controller.categoria import Categoria
+from controller.tamanhos import Tamanhos
 from flask_migrate import Migrate  # Apenas uma importação
 
 app = Flask(__name__)
@@ -29,6 +30,14 @@ def add_read_categoria():
     print(categoria.ler_categorias())
     return jsonify(categoria.ler_categorias()), 200
 
+@app.route('/api/add_tamanho', methods=['GET'])
+def add_tamanho():
+    # data = request.get_json()
+    tamanho = Tamanhos()
+    tamanho.criar_tamanho("GG")
+    return jsonify({"items": "teste", "tabelaCriada": "TABELA OK"}),200
+
+
 @app.route('/api/delete_categoria', methods=['POST'])
 def delete_categoria():
     data = request.get_json()
@@ -37,6 +46,12 @@ def delete_categoria():
     return jsonify({"status": "ok"}), 200
 
 class Fornecedores(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nome = db.Column(db.String(80), nullable=False)
+    endereco = db.Column(db.String(200))
+    telefone = db.Column(db.String(20))
+
+class testando(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(80), nullable=False)
     endereco = db.Column(db.String(200))

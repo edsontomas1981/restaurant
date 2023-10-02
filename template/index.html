@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
   <link rel="stylesheet" href="node_modules/flag-icon-css/css/flag-icon.min.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <!-- <link rel="stylesheet" href="css/meuCss/estilo.css" /> -->
+  <link rel="stylesheet" href="css/meuCss/estilo.css"/>
   <link rel="shortcut icon" href="images/favicon.png" />
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -32,18 +32,32 @@
       <div class="row row-offcanvas row-offcanvas-right">
         <!-- partial:partials/_sidebar.html -->
         <nav class="bg-white sidebar sidebar-offcanvas" id="sidebar">
-          <div class="user-info">
+          <!-- <div class="user-info">
             <img src="images/face.jpg" alt="">
             <p class="name">Richard V.Welsh</p>
             <p class="designation">Manager</p>
             <span class="online"></span>
-          </div>
+          </div> -->
           <ul class="nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">
-                <img src="images/icons/1.png" alt="">
-                <span class="menu-title">Dashboard</span>
+            <li class="nav-item active" >
+              <a class="nav-link" data-toggle="collapse" href="#cadastros" aria-expanded="true" aria-controls="cadastros">
+                <img src="images/icons/005-forms.png" alt="">
+                <span class="menu-title">Cadastros<i class="fa fa-sort-down"></i></span>
               </a>
+              <div class="collapse" id="cadastros">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#modal_cacastro_produtos" >
+                      Produtos
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#modal_cadastro_fornecedores" >
+                      Fornecedores
+                    </a>
+                  </li>                  
+                </ul>
+              </div>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="pages/widgets.html">
@@ -194,12 +208,10 @@
                       <input type="text" class="form-control" id="numero_fornecedor" name="numero_fornecedor" placeholder=" " required>
                       <label for="numero_fornecedor">Número:</label>
                     </div>   
-                    
                     <div class="form-floating col-sm-5 pl-1 pr-1 mt-1">
                       <input type="text" class="form-control" id="bairro_fornecedor" name="bairro_fornecedor" placeholder=" " required>
                       <label for="bairro_fornecedor">Bairro:</label>
                     </div> 
-
                     <div class="form-floating col-sm-5 pl-1 pr-1 mt-1">
                       <input type="text" class="form-control" id="cidade_fornecedor" name="cidade_fornecedor" placeholder=" " required>
                       <label for="cidade_fornecedor">Cidade:</label>
@@ -209,13 +221,18 @@
                       <input type="text" class="form-control" id="estado_fornecedor" name="estado_fornecedor" placeholder=" " required>
                       <label for="estado_fornecedor">UF:</label>
                     </div>
-
-                    <div class="form-floating input-group mb-3 col-sm-6 pl-1 mt-1">
+                    <div class="form-floating col-sm-5 pl-1 pr-1 mt-1">
                       <input class="form-control" id="telefone_fornecedor" placeholder=" " aria-label="telefone_fornecedor">
-                      <label for="telefone_fornecedor">Fornecedor</label>
-                      <button class="btn btn-outline-primary mr-2" type="button">+ Telefone </button>
+                      <label for="telefone_fornecedor">Telefone</label>
                     </div>
-                    <div class="row mb-2">
+                    <div class="form-floating col-sm-5 pl-1 pr-1 mt-1">
+                      <input class="form-control" id="nome_contato_fornecedor" placeholder=" " aria-label="nome_contato_fornecedor">
+                      <label for="nome_contato_fornecedor">Nome Contato</label>
+                    </div>
+                    <div class="form-floating input-group col-sm-2 pl-0 pr-0 mt-1">
+                      <button class="btn btn-outline-primary">+ Contato</button>
+                    </div>
+                    <div class="row">
                       <div class="col-lg-12">
                         <div class="card">
                           <div class="card-body">
@@ -223,72 +240,18 @@
                               <table class="table center-aligned-table">
                                 <thead>
                                   <tr class="text-primary">
-                                    <th>No</th>
-                                    <th>Invoice Subject</th>
-                                    <th>Client</th>
-                                    <th>VatNo.</th>
-                                    <th>Created</th>
-                                    <th>Status</th>
-                                    <th>Price</th>
+                                    <th>Número</th>
+                                    <th>Nome contato</th>
                                     <th></th>
                                     <th></th>
                                   </tr>
                                 </thead>
                                 <tbody>
                                   <tr class="">
-                                    <td>034</td>
-                                    <td>Designs</td>
-                                    <td>Client</td>
-                                    <td>53275531</td>
-                                    <td>12 May 2017</td>
-                                    <td><label class="badge badge-success">Approved</label></td>
-                                    <td>$349</td>
-                                    <td><a href="#" class="btn btn-primary btn-sm">Manage</a></td>
-                                    <td><a href="#" class="btn btn-danger btn-sm">Remove</a></td>
-                                  </tr>
-                                  <tr class="">
-                                    <td>035</td>
-                                    <td>Designs</td>
-                                    <td>Client</td>
-                                    <td>53275531</td>
-                                    <td>12 May 2017</td>
-                                    <td><label class="badge badge-warning">Approved</label></td>
-                                    <td>$349</td>
-                                    <td><a href="#" class="btn btn-primary btn-sm">Manage</a></td>
-                                    <td><a href="#" class="btn btn-danger btn-sm">Remove</a></td>
-                                  </tr>
-                                  <tr class="">
-                                    <td>036</td>
-                                    <td>Designs</td>
-                                    <td>Client</td>
-                                    <td>53275531</td>
-                                    <td>12 May 2017</td>
-                                    <td><label class="badge badge-success">Approved</label></td>
-                                    <td>$349</td>
-                                    <td><a href="#" class="btn btn-primary btn-sm">Manage</a></td>
-                                    <td><a href="#" class="btn btn-danger btn-sm">Remove</a></td>
-                                  </tr>
-                                  <tr class="">
-                                    <td>037</td>
-                                    <td>Designs</td>
-                                    <td>Client</td>
-                                    <td>53275531</td>
-                                    <td>12 May 2017</td>
-                                    <td><label class="badge badge-danger">Rejected</label></td>
-                                    <td>$349</td>
-                                    <td><a href="#" class="btn btn-primary btn-sm">Manage</a></td>
-                                    <td><a href="#" class="btn btn-danger btn-sm">Remove</a></td>
-                                  </tr>
-                                  <tr class="">
-                                    <td>038</td>
-                                    <td>Designs</td>
-                                    <td>Client</td>
-                                    <td>53275531</td>
-                                    <td>12 May 2017</td>
-                                    <td><label class="badge badge-success">Approved</label></td>
-                                    <td>$349</td>
-                                    <td><a href="#" class="btn btn-primary btn-sm">Manage</a></td>
-                                    <td><a href="#" class="btn btn-danger btn-sm">Remove</a></td>
+                                    <td>11-96926-2277</td>
+                                    <td>Edson Tomas</td>
+                                    <td><a href="#" class="btn btn-primary btn-sm">Alterar</a></td>
+                                    <td><a href="#" class="btn btn-danger btn-sm">Remover</a></td>
                                   </tr>
                                 </tbody>
                               </table>
@@ -298,15 +261,11 @@
                       </div>
                     </div>
                   </div>
-
-
-      
-                  <button type="submit" class="btn btn-primary">Cadastrar</button>
               </form>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Descartar</button>
+                <button type="button" class="btn btn-outline-primary">Salvar</button>
               </div>
             </div>
           </div>
