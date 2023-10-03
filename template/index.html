@@ -8,12 +8,12 @@
   <title>Star Admin</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
-  <link rel="stylesheet" href="node_modules/flag-icon-css/css/flag-icon.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/meuCss/estilo.css"/>
-  <link rel="shortcut icon" href="images/favicon.png" />
+  <!-- <link rel="stylesheet" href="../static/node_modules/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="../static/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
+  <link rel="stylesheet" href="../static/node_modules/flag-icon-css/css/flag-icon.min.css" /> -->
+  <link rel="stylesheet" href="../static/css/style.css" />
+  <link rel="stylesheet" href="../static/css/meuCss/estilo.css"/>
+  <link rel="shortcut icon" href="../static/images/favicon.png" />
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -41,7 +41,7 @@
           <ul class="nav">
             <li class="nav-item active" >
               <a class="nav-link" data-toggle="collapse" href="#cadastros" aria-expanded="true" aria-controls="cadastros">
-                <img src="images/icons/005-forms.png" alt="">
+                <img src="../static/images/icons/005-forms.png" alt="">
                 <span class="menu-title">Cadastros<i class="fa fa-sort-down"></i></span>
               </a>
               <div class="collapse" id="cadastros">
@@ -61,49 +61,49 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="pages/widgets.html">
-                <img src="images/icons/2.png" alt="">
+                <img src="../static/images/icons/2.png" alt="">
                 <span class="menu-title">Widgets</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="pages/forms/index.html">
-                <img src="images/icons/005-forms.png" alt="">
+                <img src="../static/images/icons/005-forms.png" alt="">
                 <span class="menu-title">Forms</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="pages/ui-elements/buttons.html">
-                <img src="images/icons/4.png" alt="">
+                <img src="../static/images/icons/4.png" alt="">
                 <span class="menu-title">Buttons</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="pages/tables/index.html">
-                <img src="images/icons/5.png" alt="">
+                <img src="../static/images/icons/5.png" alt="">
                 <span class="menu-title">Tables</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/charts/index.html">
-                <img src="images/icons/6.png" alt="">
+              <a class="nav-link" href="../static/pages/charts/index.html">
+                <img src="../static/images/icons/6.png" alt="">
                 <span class="menu-title">Charts</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/icons/index.html">
-                <img src="images/icons/7.png" alt="">
+              <a class="nav-link" href="../static/pages/icons/index.html">
+                <img src="../static/images/icons/7.png" alt="">
                 <span class="menu-title">Icons</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="pages/ui-elements/typography.html">
-                <img src="images/icons/8.png" alt="">
+                <img src="../static/images/icons/8.png" alt="">
                 <span class="menu-title">Typography</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#sample-pages" aria-expanded="false" aria-controls="sample-pages">
-                <img src="images/icons/9.png" alt="">
+                <img src="../static/images/icons/9.png" alt="">
                 <span class="menu-title">Sample Pages<i class="fa fa-sort-down"></i></span>
               </a>
               <div class="collapse" id="sample-pages">
@@ -138,7 +138,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <img src="images/icons/10.png" alt="">
+                <img src="../static/images/icons/10.png" alt="">
                 <span class="menu-title">Settings</span>
               </a>
             </li>
@@ -273,27 +273,26 @@
       </div>
     </div>
   </div>
-  <script src="node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="node_modules/chart.js/dist/Chart.min.js"></script>
-  <script src="node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>
-  <script src="js/off-canvas.js"></script>
-  <script src="js/hoverable-collapse.js"></script>
-  <script src="js/misc.js"></script>
-  <script src="js/chart.js"></script>
-  <script src="js/maps.js"></script>
-  <script src="js/meuJs/carrega_navbar.js"></script>
-  <script src="js/meuJs/carrega_sidebar.js"></script>
-  <!-- <script src="js/meuJs/carrega_main.js"></script> -->
-  <script src="js/meuJs/cadastro_produtos.js"></script>
-  <script src="js/meuJs/modal_categoria.js"></script>
-  <script src="js/meuJs/modal_tamanhos.js"></script>,
-  <script src="js/meuJs/modal_alegernos.js"></script>
-  <script src="js/meuJs/imagem.js"></script>
-  <script src="../js/cadastros/component/categorias.js"></script>
-  <script src="../js/main.js"></script>
-  <script src="../js/conexao.js"></script>
+  <script src="../static/node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../static/node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="../static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../static/node_modules/chart.js/dist/Chart.min.js"></script>
+  <script src="../static/node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>
+  <script src="../static/js/off-canvas.js"></script>
+  <script src="../static/js/hoverable-collapse.js"></script>
+  <script src="../static/js/misc.js"></script>
+  <script src="../static/js/chart.js"></script>
+  <script src="../static/js/maps.js"></script>
+  <script src="../static/js/meuJs/carrega_navbar.js"></script>
+  <script src="../static/js/meuJs/carrega_sidebar.js"></script>
+  <script src="../static/js/meuJs/cadastro_produtos.js"></script>
+  <script src="../static/js/meuJs/modal_categoria.js"></script>
+  <script src="../static/js/meuJs/modal_tamanhos.js"></script>,
+  <script src="../static/js/meuJs/modal_alegernos.js"></script>
+  <script src="../static/js/meuJs/imagem.js"></script>
+  <script src="../static/js/cadastros/component/categorias.js"></script>
+  <script src="../static/js/main.js"></script>
+  <script src="../static/js/conexao.js"></script>
 </body>
 
 </html>

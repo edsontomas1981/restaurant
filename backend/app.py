@@ -1,26 +1,18 @@
-import os
 import sys
-
-# Obtenha o diretório do arquivo atual (onde servidor_main.py está localizado)
-current_dir = os.path.dirname(os.path.abspath(__file__))
-
-# Adicione o diretório raiz do projeto ao sys.path
-root_dir = os.path.dirname(current_dir)
-sys.path.append(root_dir)
+sys.path.append('..')  # Adiciona o diretório pai ao caminho do sistema
 
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
-from backend.config import SQLALCHEMY_DATABASE_URI  # Importe a configuração do banco de dados
+from config import SQLALCHEMY_DATABASE_URI  # Importe a configuração do banco de dados
 from flask_cors import CORS
-from .utils.categoria  import Categoria
-from .utils.tamanhos import Tamanhos
+from utils.categoria import Categoria
+from utils.tamanhos import Tamanhos
 from flask_migrate import Migrate  # Apenas uma importação
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI  # Configurar a URI do banco de dados
-db = SQLAlchemy(app)  # Criar a instância do SQLAlchemy e registrá-la no aplicativo
-
 CORS(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/restaurant_db.db'  # Usando SQLite neste exemplo
+db = SQLAlchemy(app)
 
 @app.route('/', methods=['GET'])
 def index():
@@ -55,6 +47,23 @@ def delete_categoria():
     categoria = Categoria()
     categoria.deletar_categoria(data['id'])
     return jsonify({"status": "ok"}), 200
+
+class Fornecedores(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nome = db.Column(db.String(80), nullable=False)
+    endereco = db.Column(db.String(200))
+    telefone = db.Column(db.String(20))
+
+class testando(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nome = db.Column(db.String(80), nullable=False)
+    endereco = db.Column(db.String(200))
+    telefone = db.Column(db.String(20))
+
+class Pessoa(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nome = db.Column(db.String(80), nullable=False)
+    idade = db.Column(db.Integer)
 
 @app.route('/criar_tabelas', methods=['GET'])
 def criar_tabelas():

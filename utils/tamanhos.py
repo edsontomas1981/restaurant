@@ -1,5 +1,5 @@
 import sqlite3  # Importe o módulo sqlite3
-from controller.conexao import conectar_bd
+from utils.conexao import conectar_bd
 
 class Tamanhos():
     def criar_tamanho(self,tamanho):
